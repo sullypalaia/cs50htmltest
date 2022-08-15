@@ -1,0 +1,30 @@
+<html lang="en">
+    <head>
+        <title>search</title>
+    </head>
+    <script>
+        function greet() {
+            let message = `Welcome, ${document.querySelector("#name").value}`;
+            alert(message);
+        }
+        
+        function getLoc() {
+            navigator.geolocation.getCurrentPosition(position => {
+                document.write(position.coords.latitude + ", " + position.coords.longitude);
+            });
+        }
+    </script>
+    <body>
+        <form action="https://www.google.com/search" method="get">
+            <label for="q">Search</label>
+            <input name="q" type="text">
+            <input type="submit" value="Search">
+        </form>
+        <form onsubmit="greet();" return false>
+            <label for="name">Name</label>
+            <input id="name" type="text">
+            <input type="submit">
+        </form>
+        <button id="loc" onclick="getLoc();">Find Location</button>
+    </body>
+</html>
